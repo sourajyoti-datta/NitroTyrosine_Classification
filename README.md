@@ -14,19 +14,19 @@ pip3 install -r requirements.txt
 
 ## Usage
 ```sh  
-python execute_nitrotyrosine_experiment.py [-h] -t TRAIN -i INDPE [-c CW] -e EXP
+python execute_nitrotyrosine_experiment.py [-h] -t TRAIN -i INDPE [-f ITF] -e EXP
 ```
 
 ### Options:
   - -h,       --help            show this help message and exit
   - -t TRAIN, --train TRAIN     Training sequences file path in fasta format
   - -i INDPE, --indpe INDPE     Independent testing sequences file path in fasta format
-  - -c CW,    --cw CW           Imbalanced training factor (greater than 0, 1=balanced)
+  - -f ITF,    --itf ITF           Imbalanced training factor (greater than 0, 1=balanced)
   - -e EXP,   --exp EXP         Name of experiment (creates a folder where all experiment files are saved)
 
 ### Examples:
 ```sh
-python execute_nitrotyrosine_experiment.py -t Data\\iNitroY_Data_fasta_41\\iNitroY_train_data.fasta -i Data\\iNitroY_Data_fasta_41\\iNitroY_independent_data.fasta -c 7000 -e nt_site_experiment_iNitroYdata
+python execute_nitrotyrosine_experiment.py -t Data\\iNitroY_Data_fasta_41\\iNitroY_train_data.fasta -i Data\\iNitroY_Data_fasta_41\\iNitroY_independent_data.fasta -f 7000 -e nt_site_experiment_iNitroYdata
 
 python execute_nitrotyrosine_experiment.py -t Data\\PredNTS_Data_fasta_41\\Training-datasets-PredNTS.fasta -i Data\\PredNTS_Data_fasta_41\\independent-dataset-PredNTS.fasta -e nt_site_experiment_PredNTSdata
 ```
