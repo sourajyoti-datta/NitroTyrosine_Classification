@@ -1,8 +1,8 @@
 # Identification of Nitrotyrosine sites in Protein peptide sequences.
 
 ## Experiment overview:
-- Use of various feature encodings
-- Use of Recursive Feature Elimination
+- Use of various Protein peptide encodings
+- Use of Feature Selection Recursive Feature Elimination
 - Stacked modelling using Gradient Boosted Trees and Logistic Regression
 
 
@@ -44,3 +44,7 @@ Sequence headers/names should be in this form: <header_name>|<class_labels>|<use
 
 Sample fasta files are provided.
 
+
+### Github acknowledgements:
+- https://github.com/Superzchen/iLearnPlus
+- https://github.com/Bonidia/MathFeature
