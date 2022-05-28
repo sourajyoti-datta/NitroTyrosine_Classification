@@ -77,7 +77,7 @@ if __name__ == "__main__":
                                                                       shuffle=True, random_state=0)
     
     train_names = [val+"|training" for val in train_names]
-    test_names = [val+"|training" for val in test_names]
+    test_names = [val+"|testing" for val in test_names]
     
     save_to_fasta(train_names, train_seqs, os.path.join(output_data_folder, train_output_file))
     save_to_fasta(test_names, test_seqs, os.path.join(output_data_folder, indpe_output_file))
