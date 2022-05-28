@@ -1,0 +1,8 @@
+numpy
+pandas
+scikit-learn
+xgboost
+biopython
+PyQt5
+torch
+ilearnplus
