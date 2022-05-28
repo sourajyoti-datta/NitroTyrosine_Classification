@@ -21,7 +21,7 @@ python execute_nitrotyrosine_experiment.py [-h] -t TRAIN -i INDPE [-f ITF] -e EX
   - -h,       --help            show this help message and exit
   - -t TRAIN, --train TRAIN     Training sequences file path in fasta format
   - -i INDPE, --indpe INDPE     Independent testing sequences file path in fasta format
-  - -f ITF,    --itf ITF           Imbalanced training factor (greater than 0, 1=balanced)
+  - -f ITF,    --itf ITF           exponential Imbalanced training factor (greater than 0, 1=balanced)
   - -e EXP,   --exp EXP         Name of experiment (creates a folder where all experiment files are saved)
 
 ### Examples:
