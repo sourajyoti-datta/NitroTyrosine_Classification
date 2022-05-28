@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.model_selection import StratifiedKFold, train_test_split
-from sklearn.metrics import roc_curve, auc, accuracy_score, confusion_matrix, roc_auc_score, matthews_corrcoef
+from sklearn.metrics import roc_curve, accuracy_score, confusion_matrix, roc_auc_score, matthews_corrcoef
 from sklearn.feature_selection import RFE
 
 from xgboost import XGBClassifier
@@ -263,7 +263,7 @@ class NitrotyrosineModelling():
         fpr, tpr, thresholds = roc_curve(true_labels, y_pred)
         auc = roc_auc_score(true_labels, y_pred)
         
-        return acc, sens, spec, mcc, fpr, tpr, thresholds
+        return acc, sens, spec, mcc, fpr, tpr, thresholds, auc
         
     
     def save_evaluations(self, evaluation_dict, file):
@@ -426,7 +426,7 @@ class NitrotyrosineModelling():
             ##### Prediction and metrics for TRAIN dataset
             ##################################################################################
             
-            acc, sens, spec, mcc, fpr, tpr, thresholds = self.generate_metrics(lr_model, X_lr_train_features, fold_train_labels)
+            acc, sens, spec, mcc, fpr, tpr, thresholds, auc = self.generate_metrics(lr_model, X_lr_train_features, fold_train_labels)
             
             self.train_evaluations["Fold"].append(i)
             self.train_evaluations["Train_Test"].append("Train")
@@ -443,7 +443,7 @@ class NitrotyrosineModelling():
             ##### Prediction and metrics for TEST dataset
             ##################################################################################
             
-            acc, sens, spec, mcc, fpr, tpr, thresholds = self.generate_metrics(lr_model, X_lr_test_features, fold_test_labels)
+            acc, sens, spec, mcc, fpr, tpr, thresholds, auc = self.generate_metrics(lr_model, X_lr_test_features, fold_test_labels)
             
             self.train_evaluations["Fold"].append(i)
             self.train_evaluations["Train_Test"].append("Test")
@@ -582,7 +582,6 @@ class NitrotyrosineModelling():
         X_lr_indpe_features = np.array(X_lr_indpe_proba_list).T
 
         # fetch assembling model
-
         lr_model = self.get_model(trees=None, 
                                   cw=self.indpe_lr_cw)
 
@@ -597,7 +596,7 @@ class NitrotyrosineModelling():
         ##### Prediction and metrics for TRAIN dataset
         ##################################################################################
         
-        acc, sens, spec, mcc, fpr, tpr, thresholds = self.generate_metrics(lr_model, X_lr_train_features, train_labels)
+        acc, sens, spec, mcc, fpr, tpr, thresholds, auc = self.generate_metrics(lr_model, X_lr_train_features, train_labels)
 
         self.indpe_evaluations["Train_Test"].append("Train")
         self.indpe_evaluations["Accuracy"].append(acc)
@@ -613,7 +612,7 @@ class NitrotyrosineModelling():
         ##### Prediction and metrics for TEST dataset
         ##################################################################################
         
-        acc, sens, spec, mcc, fpr, tpr, thresholds = self.generate_metrics(lr_model, X_lr_indpe_features, indpe_labels)
+        acc, sens, spec, mcc, fpr, tpr, thresholds, auc = self.generate_metrics(lr_model, X_lr_indpe_features, indpe_labels)
 
         self.indpe_evaluations["Train_Test"].append("Independent")
         self.indpe_evaluations["Accuracy"].append(acc)
