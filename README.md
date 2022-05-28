@@ -28,7 +28,7 @@ python execute_nitrotyrosine_experiment.py [-h] -t TRAIN -i INDPE [-f ITF] -e EX
 ```sh
 python execute_nitrotyrosine_experiment.py -t Data\\iNitroY_Data_fasta_41\\iNitroY_train_data.fasta -i Data\\iNitroY_Data_fasta_41\\iNitroY_independent_data.fasta -f 7000 -e nt_site_experiment_iNitroYdata
 
-python execute_nitrotyrosine_experiment.py -t Data\\PredNTS_Data_fasta_41\\Training-datasets-PredNTS.fasta -i Data\\PredNTS_Data_fasta_41\\independent-dataset-PredNTS.fasta -e nt_site_experiment_PredNTSdata
+python execute_nitrotyrosine_experiment.py -t Data\\PredNTS_Data_fasta_41\\Training-datasets-PredNTS.fasta -i Data\\PredNTS_Data_fasta_41\\independent-dataset-PredNTS.fasta -f 0.1 -e nt_site_experiment_PredNTSdata
 ```
 
 (relative file path shown according to Windows, please use proper paths as required in your OS)
