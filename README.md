@@ -2,7 +2,7 @@
 
 ## Experiment overview:
 - Use of various Protein peptide encodings
-- Use of Feature Selection Recursive Feature Elimination
+- Use of Recursive Feature Elimination to select important features
 - Stacked modelling using Gradient Boosted Trees and Logistic Regression
 
 
